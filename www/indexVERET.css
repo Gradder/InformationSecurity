@@ -1,0 +1,26 @@
+body {
+	font-family: 'Tahoma',sans-serif;
+	background: linear-gradient(35deg, #eaeaea, #868686);
+}
+.container{
+	width: 800px;
+	margin:0 auto;
+}
+p {
+	text-align: justify;
+	width: 100%;
+}
+img {
+	width: 20%;
+	margin: auto 320px;
+}
+
+i{
+	margin: auto 303px;
+}
+
+.line{
+	width: 850px;
+	border: 0.4px solid #4d4d4d;
+
+}
