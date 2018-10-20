@@ -3244,3 +3244,8 @@
 			max-width: 400px;
 			max-height: 400px;
 		}
+
+		.footer_hover:hover{
+			background-color: rgba(108, 192, 145, 0.15);
+			cursor: pointer;
+		}
