@@ -1,0 +1,173 @@
+﻿<!DOCTYPE HTML>
+<!--
+	Projection by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Cesar</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+					<script src="assets/js/jquery-3.3.1.js"></script>
+		<script>
+$(function(){
+	$("#header").load("header.html");
+	$("#here_footer").load("footer.html");
+});
+</script>
+	</head>
+	<body class="subpage">
+
+<div id="header"></div>
+		<!-- Main -->
+		<section id="main" class="wrapper">
+				<div class="inner">
+					<header class="align-center">
+						<h2>Шифр Цезаря</h2>
+						<p>Шифр сдвига</p>
+					</header>
+
+
+					<!-- Intro -->
+						<div class="row">
+							<section class="6u 12u$(medium)">
+								<h2>Что такое шифр Цезаря?</h2>
+								<p><strong>Шифр Цезаря</strong>- это вид шифра подстановки, в котором каждый символ в открытом тексте заменяется символом, находящимся на некотором постоянном числе позиций левее или правее него в алфавите.</p>
+								<p></p>
+							</section>
+							<section class="3u 6u(medium) 12u$(small)">
+								<h2>Как это выглядит?</h2>
+								<span class="image">
+									<img src="images/ciphers/Cesar.png" alt="">
+								</span>
+							</section>
+
+						</div>
+
+						<div class="row">
+							<section class="6u 12u$(medium)">
+								<h2>Откуда появилось?</h2>
+								<p>Шифр Цезаря называют в честь Юлия Цезаря, который согласно «Жизни двенадцати цезарей» Светония использовал его со сдвигом 3, чтобы защищать военные сообщения. Хотя Цезарь был первым зафиксированным человеком, использующим эту схему, другие шифры подстановки, как известно, использовались и ранее.</p>
+								<p></p>
+							</section>
+							<section class="6u 12u$(medium)">
+								<h2>Суть простыми словами?</h2>
+										<p>Шифр Цезаря это всего лишь смещение каждой буквы в тексте на некий сдвиг общий для всего текста, а смещалась эта буква по алфавиту того языка на котором данная буква написан. </p>
+							</section>
+						</div>
+
+				<hr class="major" />
+
+					<!-- Content -->
+						<h2 id="content">Алгоритм шифрования</h2>
+						<h4>Шифр Цезаря (Шифр сдвига)</h4>
+						<p>Секрет данного способа заключался в простом смещении каждого символа на n шагов внутри алфавита на которм написан данный символ, причём сдвиг один на весь текст.</p>
+						<h1>Пример:</h1>
+						<div class="box">
+							<table>
+																		<thead>
+																			<tr>
+																				<th>Шаги</th>
+																				<th>Описание</th>
+																				<th>Изменения</th>
+																			</tr>
+																		</thead>
+																		<tbody>
+																			<tr>
+																				<td>1</td>
+																				<td>Берем фразу, которую хотим закодировать</td>
+																				<td>Area Z90</td>
+																			</tr>
+																			<tr>
+																				<td>2</td>
+																				<td>Берём ключ(смещение)</td>
+																				<td>3</td>
+																			</tr>
+																			<tr>
+																				<td>3</td>
+																				<td>Смещаем каждый символ на сдвиг равный ключу</td>
+																				<td>Area Z90 -> Duhd C23</td>
+																			</tr>
+																			<tr>
+																				<td>4</td>
+																				<td>Пример кодирования обного символа</td>
+																				<td>Символ равен "A", ключ равен 3, используется английский алфавит. Буква "A" в английском алфавите занимает 1 позицию, значит при кодировке вместо "А" будет буква чья позиция в алфавите равна 4, это буква "D".</td>
+																			</tr>
+																			<tr>
+																				<td>5</td>
+																				<td>Итог</td>
+																				<td>Duhd C23</td>
+																			</tr>
+																			<tr>
+																		</tbody>
+																	</table>
+						</div>
+
+						<h4>Шифратор</h4>
+
+						<div class="row">
+							<div class="3u 12u$(small)">
+								<input type="text" name="query" id="key" value="" placeholder="Ключ">
+							</div>
+								<div class="6u 12u$(small)">
+									<input type="text" name="query" id="originalword" value="" placeholder="Текст для шифрования">
+								</div>
+								<div class="3u$ 12u$(small)">
+									<input type="button" value="Зашифровать  " class="fit" onclick="CesarClicked(true)">
+								</div>
+						</div>
+						<br/>
+						<h4>Результат:</h4>
+						<p id="hide_me">Зашифруйте сообщение чтобы увидеть результат</p>
+						<div class="row">
+							<h1 id="litoreia_result1_header" class="1u 12u$(small)"></h1>
+							<p id="originalword1" class="9u 12u$(small)"></p>
+						</div>
+							<div class="row">
+								<h1 id="litoreia_result2_header" class="1u 12u$(small)"></h1>
+								<p id="key1" class="9u 12u$(small)"></p>
+							</div>
+						<div class="row">
+							<h1 id="litoreia_result3_header" class="1u 12u$(small)"></h1><p id="code1" class="9u 12u$(small)"></p>
+						</div>
+						
+
+						<h4>Дешифратор</h4>
+						<div class="row">
+							<div class="3u 12u$(small)">
+								<input type="text" name="query" id="key5" value="" placeholder="Ключ">
+							</div>
+								<div class="6u 12u$(small)">
+									<input type="text" name="query" id="originalword4" value="" placeholder="Текст для дешифрования">
+								</div>
+								<div class="3u$ 12u$(small)">
+									<input type="button" value="Дешифровать  " class="fit" onclick="CesarClicked(false)">
+								</div>
+						</div>
+						<br/>
+						<h4>Результат:</h4>
+						<div class="row">
+							<h1 id="litoreia_result5_header" class="1u 12u$(small)"></h1>
+							<p id="originalword3" class="9u 12u$(small)"></p>
+						</div>
+
+
+			</section>
+
+
+
+		<!-- Footer -->
+
+<div id="here_footer"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/cesar.js"></script>
+	</body>
+</html>
