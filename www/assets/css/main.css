@@ -22,7 +22,7 @@
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 		display: block;
 	}
-
+	
 	body {
 		line-height: 1;
 	}
@@ -1649,7 +1649,9 @@
 	em, i {
 		font-style: italic;
 	}
-
+	.svdoc {
+		margin-bottom: 1em;
+	}
 	p {
 		margin: 0 0 2em 0;
 	}
@@ -3243,4 +3245,9 @@
 		.image_fixer{
 			max-width: 400px;
 			max-height: 400px;
+		}
+
+		.footer_hover:hover{
+			background-color: rgba(108, 192, 145, 0.15);
+			cursor: pointer;
 		}
