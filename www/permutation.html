@@ -1,0 +1,190 @@
+﻿<!DOCTYPE HTML>
+<!--
+	Projection by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Permutation</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+					<script src="assets/js/jquery-3.3.1.js"></script>
+		<script>
+$(function(){
+	$("#header").load("header.html");
+	$("#here_footer").load("footer.html");
+});
+</script>
+	</head>
+	<body class="subpage">
+
+<div id="header"></div>
+		<!-- Main -->
+		<section id="main" class="wrapper">
+				<div class="inner">
+					<header class="align-center">
+						<h2>Шифр перестановки</h2>
+						<p>Шифр одинарной перестановки</p>
+					</header>
+
+
+					<!-- Intro -->
+						<div class="row">
+							<section class="6u 12u$(medium)">
+								<h2>Что такое шифр перестановки?</h2>
+								<p><strong>Шифр перестано́вки</strong> — это метод симметричного шифрования, в котором элементы исходного открытого текста меняют местами. Элементами текста могут быть отдельные символы (самый распространённый случай), пары букв, тройки букв, комбинирование этих случаев и так далее. Типичными примерами перестановки являются анаграммы. В классической криптографии шифры перестановки можно разделить на два класса:
+
+								Шифры одинарной (простой) перестановки — при шифровании символы открытого текста перемещаются с исходных позиций в новые один раз.
+								
+								Шифры множественной (сложной) перестановки — при шифровании символы открытого текста перемещаются с исходных позиций в новые несколько раз.</p>
+								<p></p>
+							</section>
+							<section class="3u 6u(medium) 12u$(small)">
+								<h2>Как это выглядит?</h2>
+								<span class="image">
+									<img src="images/ciphers/permutation.png" alt="">
+									<div class="box">
+										<p>Скитала — инструмент, используемый для осуществления перестановочного шифрования, в криптографии известный также как шифр Древней Спарты. Представляет собой цилиндр и узкую полоску пергамента, на которой писалось сообщение, обматывавшуюся вокруг него по спирали.</p>
+									</div>
+								</span>
+							</section>
+
+						</div>
+
+						<div class="row">
+							<section class="6u 12u$(medium)">
+								<h2>Откуда появилось?</h2>
+								<p>Точное время появления шифра перестановки не известно. Вполне возможно, что писцы в древности переставляли буквы в имени своего царя ради того, чтобы скрыть его подлинное имя или в ритуальных целях.
+
+Одно из древнейших известных нам шифровальных устройств — Скитала. Бесспорно известно, что скитала использовалась в войне Спарты против Афин в конце V века до н. э.
+
+Прародителем анаграммы считают поэта и грамматика Ликофрона, который жил в Древней Греции в III веке до н. э. Как сообщал византийский автор Иоанн Цец, из имени царя Птоломея он составил первую из известных нам анаграмм: Ptolemaios — Аро Melitos, что в переводе означает «из мёда», а из имени царицы Арсинои — как «Ion Eras» (фиалка Геры).</p>
+								<p></p>
+							</section>
+							<section class="6u 12u$(medium)">
+								<h2>Суть простыми словами?</h2>
+										<p>Мы переставляем буквы местами и записываем, в каком порядке ти буквы стояли до этого. Человек, получающий этот записанный порядок может расшифровать наше сообщение. </p>
+							</section>
+						</div>
+
+				<hr class="major" />
+
+					<!-- Content -->
+						<h2 id="content">Алгоритмы шифрования</h2>
+						<h4>Перестановка букв</h4>
+						<p>Мы переставляем буквы изначального слова местами, вместе с ними переставляя номера их позиций, в которых они стояли до этого. Зная, какая буква на какой позиции стояла до шифрования, мы можем с легкостью дешифровать.</p>
+						<h1>Пример:</h1>
+						<div class="box">
+							<table>
+																		<thead>
+																			<tr>
+																				<th>Шаги</th>
+																				<th>Описание</th>
+																				<th>Изменения</th>
+																			</tr>
+																		</thead>
+																		<tbody>
+																			<tr>
+																				<td>1</td>
+																				<td>Берем фразу, которую хотим закодировать</td>
+																				<td>ПРИВЕТ</td>
+																			</tr>
+																			<tr>
+																				<td>2</td>
+																				<td>Записываем, какая буква на какой позиции стоит</td>
+																				<td>123456</td>
+																			</tr>
+																			<tr>
+																				<td>3</td>
+																				<td>Переставляем буквы местами</td>
+																				<td>РПЕВИТ</td>
+																			</tr>
+																			<tr>
+																				<td>4</td>
+																				<td>Цифры переставляем вместе с буквами на соответсвующие места</td>
+																				<td>215436</td>
+																			</tr>
+																			<tr>
+																				<td>5</td>
+																				<td>Итог</td>
+																				<td>РПЕВИТ</td>
+																			</tr>
+																		</tbody>
+																	</table>
+						</div>
+
+						<h4>Шифратор</h4>
+
+						<div class="row">
+														
+														<div class="6u 12u$(small)">
+															<input type="text" name="query" id="premutation_text_divide" value="" placeholder="Текст для шифрования">
+														</div>
+														<div class="3u$ 12u$(small)">
+															<input type="submit" value="Зашифровать  " class="fit" onclick="cipher_permutation_divide()">
+														</div>
+													</div>
+													<br/>
+													<h4>Результат:</h4>
+													<p id="hide_me">Зашифруйте сообщение чтобы увидеть результат</p>
+													<div class="row">
+													<h1 id="premutation_result1_header" class="1u 12u$(small)"></h1><p id="premutation_result1" class="9u 12u$(small)"></p>
+												</div>
+												<div class="row">
+														<h1 id="premutation_result2_header" class="1u 12u$(small)"></h1><p id="premutation_result2" class="9u 12u$(small)"></p>
+												</div>
+												<div class="row">
+												<table id="premutation_result_table" style="display: none; border-collapse: separate !important;">
+												<tr>
+													<td style="border: 1px grey solid;padding: 5px !important"><p style="margin: 0 !important" id="premutation_result31_header"></p></td>
+													<!--<td style="border: 1px grey solid;padding: 5px !important"><p style="margin: 0 !important" id="premutation_result31" class="9u 12u$(small)"></p></td>-->
+												</tr>
+												<tr>
+													<td style="border: 1px grey solid;padding: 5px !important"><p style="margin: 0 !important" id="premutation_result3_header"></p></td>
+													<!--<td style="border: 1px grey solid;padding: 5px !important"><p style="margin: 0 !important" id="premutation_result3" class="9u 12u$(small)"></p></td>-->
+												</tr>
+												</table>	
+												</div>
+												<div class="row">
+													<h1 id="premutation_result4_header" class="1u 12u$(small)"></h1>	<p id="premutation_result4" class="9u 12u$(small)"></p>
+												</div>
+
+												<hr class="major" />
+
+						<h4>Дешифратор</h4>
+
+						<div class="row">
+								<div class="3u 12u$(small)">
+									<input type="text" name="query" id="premutation_key_divide" value="" placeholder="Ключ">
+								</div>
+								<div class="6u 12u$(small)">
+									<input type="text" name="query" id="premutation_coded_text_divide" value="" placeholder="Текст для дешифрования">
+								</div>
+								<div class="3u$ 12u$(small)">
+									<input type="submit" value="Дешифровать  " class="fit" onclick="decipher_premutation_divide()">
+								</div>
+							</div>
+							<br/>
+							<h4>Результат:</h4>
+							<p id="decode_premutation_result">Дешифруйте сообщение чтобы увидеть результат</p>
+
+
+			</section>
+
+
+
+		<!-- Footer -->
+
+<div id="here_footer"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/permutation.js"></script>
+	</body>
+</html>
