@@ -1,0 +1,172 @@
+﻿<!DOCTYPE HTML>
+<!--
+	Projection by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>simple square cipher</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+					<script src="assets/js/jquery-3.3.1.js"></script>
+		<script>
+$(function(){
+	$("#header").load("header.html");
+	$("#here_footer").load("footer.html");
+});
+</script>
+	</head>
+	<body class="subpage">
+
+<div id="header"></div>
+		<!-- Main -->
+		<section id="main" class="wrapper">
+				<div class="inner">
+					<header class="align-center">
+						<h2>Простой квадратный шифр</h2>
+					</header>
+
+
+					<!-- Intro -->
+						<div class="row">
+							<section class="6u 12u$(medium)">
+								<h2>Что такое простой квадратный шифр?</h2>
+								<p><strong>Простой квадратный шифр</strong>- это вид шифра подстановки, в котором каждая буква алфавита в открытом тексте  шифруется с помощью двузначных чисел – номеров строки и столбца.</p>
+								<p></p>
+							</section>
+							<section class="3u 6u(medium) 12u$(small)">
+								<h2>Как это выглядит?</h2>
+								<span class="image">
+									<img src="images/ciphers/square.png" width="250" alt="">
+								</span>
+							</section>
+
+						</div>
+
+						<div class="row">
+							<section class="6u 12u$(medium)">
+								<h2>Откуда появилось?</h2>
+								<p>Простой квадратный шифр активно использовался в революционном подполье, хотя имел некоторую ненадежность при шифровке длинных текстов.</p>
+								<p></p>
+							</section>
+							<section class="6u 12u$(medium)">
+								<h2>Суть простыми словами?</h2>
+										<p>Запоминается лозунг, состоящий из десяти букв, который придумывается таким образом, чтобы в таблице появились все буквы алфавита. Затем составляется квадрат 10х10, лозунг записывается в первый столбец квадрата, далее по горизонталям таблицы записываются буквы в порядке алфавита. Теперь каждая буква алфавита шифруется с помощью двузначных чисел – номеров строки и столбца. </p>
+							</section>
+						</div>
+
+				<hr class="major" />
+
+					<!-- Content -->
+						<h2 id="content">Алгоритм шифрования</h2>
+						<h4>Простой квадратный шифр</h4>
+						<p>Секрет данного способа заключался в том, что каждая буква алфавита шифруется с помощью двузначных чисел – номеров строки и столбца таблицы, образованной на 10-буквенном лозунге.</p>
+						<h1>Пример:</h1>
+						<div class="box">
+							<table>
+																		<thead>
+																			<tr>
+																				<th>Шаги</th>
+																				<th>Описание</th>
+																				<th>Изменения</th>
+																			</tr>
+																		</thead>
+																		<tbody>
+																			<tr>
+																				<td>1</td>
+																				<td>Берем фразу, которую хотим закодировать</td>
+																				<td>Милый котейка</td>
+																			</tr>
+																			<tr>
+																				<td>2</td>
+																				<td>Берем лозунг</td>
+																				<td>Эта коробка</td>
+																			</tr>
+																			<tr>
+																				<td>3</td>
+																				<td>Зменяем каждый символ номером столбца и строки буквы в таблице, основанной на лозунге</td>
+																				<td>Милый котейка -> 348824920008543663031441</td>
+																			</tr>
+																			<tr>
+																				<td>4</td>
+																				<td>Пример кодирования обного символа</td>
+																				<td>Символ равен "М", лозунг - "ЭТАКОРОБКА", составляем таблицу 10х10 на основе лозунга, находим букву "М" в таблице и выписываем номер ее столбца и строки. Буква "М" находится на позициях "34" и "39", выбираем любую из позиций, в данном случае выбрали "34".</td>
+																			</tr>
+																			<tr>
+																				<td>5</td>
+																				<td>Итог</td>
+																				<td>348824920008543663031441</td>
+																			</tr>
+																			<tr>
+																		</tbody>
+																	</table>
+						</div>
+
+						<h4>Шифратор</h4>
+
+						<div class="row">
+							<div class="3u 12u$(small)">
+								<input type="text" name="query" id="key" value="" placeholder="Лозунг">
+							</div>
+								<div class="6u 12u$(small)">
+									<input type="text" name="query" id="originalword" value="" placeholder="Текст для шифрования">
+								</div>
+								<div class="3u$ 12u$(small)">
+									<input type="button" value="Зашифровать  " class="fit" onclick="SquareClicked(true)">
+								</div>
+						</div>
+						<br/>
+						<h4>Результат:</h4>
+						<p id="hide_me">Зашифруйте сообщение чтобы увидеть результат</p>
+						<div class="row">
+							<h1 id="litoreia_result1_header" class="1u 12u$(small)"></h1>
+							<p id="originalword1" class="9u 12u$(small)"></p>
+						</div>
+							<div class="row">
+								<h1 id="litoreia_result2_header" class="1u 12u$(small)"></h1>
+								<p id="key1" class="9u 12u$(small)"></p>
+							</div>
+						<div class="row">
+							<h1 id="litoreia_result3_header" class="1u 12u$(small)"></h1><p id="code1" class="9u 12u$(small)"></p>
+						</div>
+						
+
+						<h4>Дешифратор</h4>
+						<div class="row">
+							<div class="3u 12u$(small)">
+								<input type="text" name="query" id="key5" value="" placeholder="Лозунг">
+							</div>
+								<div class="6u 12u$(small)">
+									<input type="text" name="query" id="originalword4" value="" placeholder="Текст для дешифрования">
+								</div>
+								<div class="3u$ 12u$(small)">
+									<input type="button" value="Дешифровать  " class="fit" onclick="CesarClicked(false)">
+								</div>
+						</div>
+						<br/>
+						<h4>Результат:</h4>
+						<div class="row">
+							<h1 id="litoreia_result5_header" class="1u 12u$(small)"></h1>
+							<p id="originalword3" class="9u 12u$(small)"></p>
+						</div>
+
+
+			</section>
+
+
+
+		<!-- Footer -->
+
+<div id="here_footer"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/cesar.js"></script>
+	</body>
+</html>
