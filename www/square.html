@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <!--
 	Projection by TEMPLATED
 	templated.co @templatedco
@@ -10,17 +10,17 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-					<script src="assets/js/jquery-3.3.1.js"></script>
+		<script src="assets/js/jquery-3.3.1.js"></script>
 		<script>
-$(function(){
-	$("#header").load("header.html");
-	$("#here_footer").load("footer.html");
-});
-</script>
+			$(function(){
+				$("#header").load("header.html");
+				$("#here_footer").load("footer.html");
+			});
+		</script>
 	</head>
 	<body class="subpage">
 
-<div id="header"></div>
+        <div id="header"></div>
 		<!-- Main -->
 		<section id="main" class="wrapper">
 				<div class="inner">
@@ -107,66 +107,88 @@ $(function(){
 						<h4>Шифратор</h4>
 
 						<div class="row">
-							<div class="3u 12u$(small)">
-								<input type="text" name="query" id="key" value="" placeholder="Лозунг">
-							</div>
+                                <div class="3u 12u$(small)">
+                                    <input type="text" name="query" id="key" value="" placeholder="Лозунг">
+                                </div>
 								<div class="6u 12u$(small)">
-									<input type="text" name="query" id="originalword" value="" placeholder="Текст для шифрования">
+									<input type="text" name="query" id="text" value="" placeholder="Текст для шифрования">
 								</div>
 								<div class="3u$ 12u$(small)">
-									<input type="button" value="Зашифровать  " class="fit" onclick="SquareClicked(true)">
+									<input type="button" value="Зашифровать" class="fit" onclick="makeSquare(0)">
 								</div>
 						</div>
 						<br/>
 						<h4>Результат:</h4>
-						<p id="hide_me">Зашифруйте сообщение чтобы увидеть результат</p>
+						<p id="hideMe">Зашифруйте сообщение чтобы увидеть результат</p>
 						<div class="row">
-							<h1 id="litoreia_result1_header" class="1u 12u$(small)"></h1>
-							<p id="originalword1" class="9u 12u$(small)"></p>
+							<h1 id="resultTextLabel" class="1u 12u$(small)"></h1>
+							<p id="resultText" class="9u 12u$(small)"></p>
 						</div>
-							<div class="row">
-								<h1 id="litoreia_result2_header" class="1u 12u$(small)"></h1>
-								<p id="key1" class="9u 12u$(small)"></p>
-							</div>
+                    
+                        <div class="row">
+                            <h1 id="resultKeyLabel" class="1u 12u$(small)"></h1>
+                            <p id="resultKey" class="9u 12u$(small)"></p>
+                        </div>
+                    
 						<div class="row">
-							<h1 id="litoreia_result3_header" class="1u 12u$(small)"></h1><p id="code1" class="9u 12u$(small)"></p>
+							<h1 id="resultSqareLabel" class="1u 12u$(small)"></h1>
+                            <p id="resultSquare" class="9u 12u$(small)"></p>
+						</div>
+                    
+                        <div class="row">
+							<h1 id="resultOutLabel" class="1u 12u$(small)"></h1>
+                            <p id="resultOut" class="9u 12u$(small)"></p>
 						</div>
 						
 
 						<h4>Дешифратор</h4>
 						<div class="row">
 							<div class="3u 12u$(small)">
-								<input type="text" name="query" id="key5" value="" placeholder="Лозунг">
+								<input type="text" name="query" id="Dkey" value="" placeholder="Лозунг">
 							</div>
 								<div class="6u 12u$(small)">
-									<input type="text" name="query" id="originalword4" value="" placeholder="Текст для дешифрования">
+									<input type="text" name="query" id="Dtext" value="" placeholder="Текст для дешифрования">
 								</div>
 								<div class="3u$ 12u$(small)">
-									<input type="button" value="Дешифровать  " class="fit" onclick="CesarClicked(false)">
+									<input type="button" value="Дешифровать" class="fit" onclick="makeSquare(1)">
 								</div>
 						</div>
 						<br/>
 						<h4>Результат:</h4>
+                        <p id="DhideMe">Дешифруйте сообщение чтобы увидеть результат</p>
 						<div class="row">
-							<h1 id="litoreia_result5_header" class="1u 12u$(small)"></h1>
-							<p id="originalword3" class="9u 12u$(small)"></p>
+							<h1 id="DresultTextLabel" class="1u 12u$(small)"></h1>
+							<p id="DresultText" class="9u 12u$(small)"></p>
 						</div>
+                    
+                        <div class="row">
+							<h1 id="DresultKeyLabel" class="1u 12u$(small)"></h1>
+							<p id="DresultKey" class="9u 12u$(small)"></p>
+						</div>
+                    
+                        <div class="row">
+							<h1 id="DresultSqareLabel" class="1u 12u$(small)"></h1>
+                            <p id="DresultSquare" class="9u 12u$(small)"></p>
+						</div>
+                    
+                        <div class="row">
+							<h1 id="DresultOutLabel" class="1u 12u$(small)"></h1>
+							<p id="DresultOut" class="9u 12u$(small)"></p>
+						</div>
+                    
 
-
+                </div>
 			</section>
-
-
 
 		<!-- Footer -->
 
-<div id="here_footer"></div>
+            <div id="here_footer"></div>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
-
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script src="assets/js/cesar.js"></script>
+			<script src="assets/js/square.js"></script>
 	</body>
 </html>
