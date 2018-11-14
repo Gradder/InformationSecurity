@@ -21,14 +21,14 @@ function msgToTable() {
             first.push('<td>' + msg[i][0] + '</td>');
             sec.push('<td>' + msg[i][1] + '</td>');
         }
-        msg = '<table><tr>' + first.join() + '</tr><tr>' + sec.join() + '</tr></table>';
+        msg = '<table><tr>' + first.join('') + '</tr><tr>' + sec.join('') + '</tr></table>';
     }
     else {
         for (var i = 0; i < msg.length; i += 2) {
             first.push('<td>' + msg[i] + '</td>');
             sec.push('<td>' + msg[i + 1] + '</td>');
         }
-        msg = '<table><tr>' + first.join() + '</tr><tr>' + sec.join() + '</tr></table>';
+        msg = '<table><tr>' + first.join('') + '</tr><tr>' + sec.join('') + '</tr></table>';
     }
 }
 
