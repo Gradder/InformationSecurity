@@ -1585,7 +1585,7 @@
 /* Type */
 
 	body, input, select, textarea {
-		color: #9a9a9a;
+		color: #454545;
 		font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
 		font-size: 14pt;
 		font-weight: 400;
@@ -1649,7 +1649,9 @@
 	em, i {
 		font-style: italic;
 	}
-
+	.svdoc {
+		margin-bottom: 1em;
+	}
 	p {
 		margin: 0 0 2em 0;
 	}
@@ -3108,7 +3110,35 @@
 		}
 
 /* Footer */
+.flexcontainer{
+	padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flexcontainer i:hover{
+	color: #eee;
+}
+#myfooter{
+   /* 0 flex-grow, 0 flex-shrink, auto flex-basis */
+   width: 100%;
+   background-color: #6cc091;
+   flex: 1 0 auto;
+   color: #fff;
 
+}
+#myfooter h3{
+   /* 0 flex-grow, 0 flex-shrink, auto flex-basis */
+
+   color: #fff;
+
+}
+/* 
 	#footer {
 		padding: 6em 0;
 		background: #6cc091;
@@ -3156,7 +3186,7 @@
 				padding: 3em 0;
 			}
 
-		}
+		} */
 
 		.div-button{
 			padding:10px!important;
@@ -3240,6 +3270,7 @@
 			padding-left: 50px;
 		}
 
+
 		.image_fixer{
 			max-width: 400px;
 			max-height: 400px;
@@ -3248,4 +3279,23 @@
 		.footer_hover:hover{
 			background-color: rgba(108, 192, 145, 0.15);
 			cursor: pointer;
+		}
+
+		.image_lectures{
+			max-width:1000px;
+			max-height: 800px;
+			display: block;
+			margin: 10px;
+		}
+
+		.and_center{
+			margin-left: auto;
+    	margin-right: auto;
+		}
+		.and_right{
+			float: right;
+		}
+
+		.and_left{
+			float: left;
 		}
