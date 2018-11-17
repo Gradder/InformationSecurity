@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Решётки Кардано</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="assets/css/main.css">
 		<link rel="icon" href="icon.png">
-		<script src="jquery-3.3.1.js"></script>
+		<script src="assets/js/jquery-3.3.1.js"></script>
 		<script>
 			$(function(){
 				$("#header").load("header.html");
@@ -15,19 +15,7 @@
 		</script>
 	</head>
 	<body class="subpage">
-		<div id="header">			
-			<header id="header">
-				<div class="inner">
-					<a href="http://fspoib.tk/index.html" class="logo"><strong>Security</strong> is an important thing</a>
-					<nav id="nav">
-						<a href="http://fspoib.tk/index.html">Главная</a>
-						<a href="http://fspoib.tk/progress_board.html">Прогресс</a>
-						<a href="http://fspoib.tk/elements.html">Элементы</a>
-					</nav>
-					<a href="http://fspoib.tk/cardano.html#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
-				</div>
-			</header>
-		</div>
+		<div id="header"></div>
 		<!-- Main -->
 		<section id="main" class="wrapper">
 			<div class="inner">
@@ -155,7 +143,7 @@
 				<h4>Шифратор</h4>
 				<div class="row">
 					<div style="width: 700px" class="6u 12u$(small)">
-						<input  type="text" name="query" value="" placeholder="Текст для шифрования" id="texts">
+						<input  type="text" name="query" maxlength=36 value="" placeholder="Текст для шифрования" id="texts">
 					</div>
 					<div class="3u$ 12u$(small)">
 						<input type="submit" value="Зашифровать  " class="fit" id="zashifr">
@@ -173,12 +161,12 @@
 									<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 									<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 								</table></p>
-				
+
 				<hr class="major">
 				<h4>Дешифратор</h4>
 				<div class="row">
 					<div class="9u 12u$(small)">
-						<input type="text" name="query" value="" placeholder="Текст для дешифрования" id="textr">
+						<input type="text" name="query" maxlength=36 value="" placeholder="Текст для дешифрования" id="textr">
 					</div>
 					<div class="3u$ 12u$(small)">
 						<input type="submit" value="Дешифровать  " class="fit" id="deshifr">
@@ -194,21 +182,12 @@
 									<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 									<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 								</table>
-				
+
 				<p id="decode_cardano_result">Дешифруйте сообщение чтобы увидеть результат</p>
 			</div>
 		</section>
 		<!-- Footer -->
-		<div id="here_footer">
-			<footer id="footer" style="max-height: 100px;">
-				<h3 style="margin-top:-70px;">Ссылки на всё</h3>
-				<div style="margin-top:-70px;"><i onclick="return location.href = &#39;https://github.com/Gradder/InformationSecurity&#39;" class="icon fa-github fa-5x footer_hover"></i>  <i onclick="return location.href = &#39;https://drive.google.com/drive/u/1/folders/1ucCxv6MTJeCxI35UvBbHgo5u8_-LHYNL&#39;" class="icon fa-cloud-download fa-5x footer_hove" style="margin-left:100px;"></i></div>
-				<div class="copyright" style="margin-top:-20px; margin-left:20px;">
-					© Roman Zhitkov
-					<span style="margin-left:60px;">Email: rvzhitkov@gmail.com</span>
-				</div>
-			</footer>
-		</div>
+		<div id="here_footer"></div>
 			<!-- Scripts -->
 			<script src="jquery.min.js"></script>
 			<script src="skel.min.js"></script>
@@ -216,7 +195,7 @@
 			<script src="main.js"></script>
 			<script src="constructor.js"></script>
 			<script src="final.js"></script>  <!-- наш код -->
-		<div id="navPanel">undefined<a href="http://fspoib.tk/cardano.html#navPanel" class="close" 
+		<div id="navPanel">undefined<a href="http://fspoib.tk/cardano.html#navPanel" class="close"
 			style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></a></div>
 	</body>
 </html>
