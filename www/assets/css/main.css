@@ -3115,6 +3115,32 @@
 
 /* Footer */
 
+.flexcontainer{
+	padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flexcontainer i:hover{
+	color: #eee;
+}
+#myfooter{
+   /* 0 flex-grow, 0 flex-shrink, auto flex-basis */
+   width: 100%;
+   background-color: #6cc091;
+   flex: 1 0 auto;
+   color: #fff;
+ }
+#myfooter h3{
+   /* 0 flex-grow, 0 flex-shrink, auto flex-basis */
+    color: #fff;
+ }
+/*
 	#footer {
 		padding: 6em 0;
 		background: #6cc091;
@@ -3162,7 +3188,7 @@
 				padding: 3em 0;
 			}
 
-		}
+		}*/
 
 		.div-button{
 			padding:10px!important;
