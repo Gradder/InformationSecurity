@@ -2983,8 +2983,12 @@
 		}
 
 			#banner .flex div {
-				border-right: 2px solid rgba(255, 255, 255, 0.2);
+				border-right: 1px solid rgba(255, 255, 255, 0.2);
 				padding: 0 8em;
+			}
+
+			#banner .flex > div {
+				width: 33%;
 			}
 
 				#banner .flex div:last-child {
@@ -3162,6 +3166,8 @@
 
 		.div-button{
 			padding:10px!important;
+
+
 		}
 		.div-button:hover {
 			background-color: rgba(108, 192, 145, 0.15);
