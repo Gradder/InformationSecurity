@@ -2983,8 +2983,12 @@
 		}
 
 			#banner .flex div {
-				border-right: 2px solid rgba(255, 255, 255, 0.2);
+				border-right: 1px solid rgba(255, 255, 255, 0.2);
 				padding: 0 8em;
+			}
+
+			#banner .flex > div {
+				width: 33%;
 			}
 
 				#banner .flex div:last-child {
@@ -3111,6 +3115,32 @@
 
 /* Footer */
 
+.flexcontainer{
+	padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flexcontainer i:hover{
+	color: #eee;
+}
+#myfooter{
+   /* 0 flex-grow, 0 flex-shrink, auto flex-basis */
+   width: 100%;
+   background-color: #6cc091;
+   flex: 1 0 auto;
+   color: #fff;
+ }
+#myfooter h3{
+   /* 0 flex-grow, 0 flex-shrink, auto flex-basis */
+    color: #fff;
+ }
+/*
 	#footer {
 		padding: 6em 0;
 		background: #6cc091;
@@ -3158,10 +3188,12 @@
 				padding: 3em 0;
 			}
 
-		}
+		}*/
 
 		.div-button{
 			padding:10px!important;
+
+
 		}
 		.div-button:hover {
 			background-color: rgba(108, 192, 145, 0.15);
@@ -3270,4 +3302,63 @@
 
 		.and_left{
 			float: left;
+		}
+		.colonka1 {
+			width: 7%;
+		}
+		.colonka2 {
+			width: 50%;
+			border-left: 1px solid grey;
+			border-right: 1px solid grey;
+		}
+		.colonka3 {
+			width: 43%;
+			padding: 15px;
+			text-align: center;
+		}
+		th {
+			text-align: center !important;
+		}
+		.illustr, .t111 {
+			margin: 15px 30%;
+			border-collapse: collapse;
+			background-color: white;
+			border: 0px solid white;
+			width: 155px;
+			height: 155px;
+			/*display: inline-table;*/
+		}
+		.illustr tr td, .td111 {
+			border: 1px solid black;
+			width: 25px !important;
+			height: 25px !important;
+			padding: 0px;
+		}
+		.pole {
+			border: 1px solid black;
+			height: 125px;
+			width: 125px;
+		}
+		.pole>div {
+			border: 1px solid black;
+			height: 20px;
+			width: 20px;
+			display: inline-block;
+			box-sizing: border-box;
+			margin: 0px 0px !important;
+		}
+		#frame {
+			border: 1px solid grey;
+			border-radius: 5px;
+			width: 95%;
+			min-height: 310px;
+		}
+		 #reload {
+			width: 100px;
+			padding: 0px;
+			margin: 10px;
+			margin-left: 38%;
+		}
+		#texts {
+			width: 90%;
 		}

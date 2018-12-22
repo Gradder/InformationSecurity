@@ -1,0 +1,24 @@
+td {
+	width: 25px;
+	height: 25px;
+	background-color: black;
+}
+table {
+	/* position: absolute;
+	opacity: 0.5; */
+	margin: 15px;
+	font-size: 0px;
+	border-collapse: collapse;
+	display: inline-table;
+	caption-side: bottom;
+}
+.p1, .p2, .p3, .p4 {
+	display: inline-block;
+	position: absolute;
+	top: 255px;
+}
+/* 
+.table:after  { content: "Оригинал";  }
+.table90:after  { content: "90°";  }
+.table180:after  { content: "180°";  }
+.table270:after  { content: "270°";  } */
