@@ -1,0 +1,120 @@
+<html>
+	<title>
+		
+	</title>
+	<body onclick="next_step()">
+		<style>
+		img{
+			display: block;
+			height: 5%;
+		}
+		</style>
+		<script type="text/javascript">alert("Добро пожаловать. Для прохождения по анимации нажимайте мышкой по телу страницы")</script>
+		<center style="display: flex;flex-wrap: wrap; width: 50%; justify-content: space-between;">
+			<div style="width: 100%;">
+				<CENTER>
+					<p class=step0> Есть Alice и Bob.<br>
+					И они пользуется незашфованным каналом. Однако, хотят сохранить конфедециальность переписки</p>
+					<p class=step0> Для этого они договариваются об общей формуле шифорования:</p>
+					<p class=step0>A=g<sup>x</sup>mod p</p> 
+				</CENTER>
+			</div>
+			<div style="width: 1/4;">
+				<center>
+					<p class=step0> Alice</p>
+				</center>
+			</div>
+			<div style="width: 1/4;">
+				<center>
+					<p class=step0> Bob</p>
+				</center>
+			</div>
+			<div style="width:100%;">
+				<center>
+					<p class=step1> Затем они задают 2 числа для этой формулы</p>
+				</center>
+			</div>
+			<div style="width: 1/4;">
+				<center>
+					<p class=step2>Alice решает, что: g=3</p>
+				</center>
+			</div>
+			<div style="width: 1/4;">
+				<center>
+					<p class="step2">Bob решает, что: p=7</p>
+				</center>
+			</div>
+			<div style="width: 100%">
+				<p class="step3">Теперь они передают эти числа друг другу</p>
+				<p class="step4"><input type=text readonly="true" value=3 size=2></p>
+				<p class="step4"><img src="left.jpg"></p>
+				<p class="step4"><input type=text readonly="true" value=7 size=2></p>
+				<p class="step4"><img src="right.jpg"></p>
+				<p class="step5"> После этого каждый из них придумает секретное число и высчитавает значение формулы для него</p>
+			</div>
+			<div class="step6" style="width: 1/4;">
+				<center>
+					<p>Alica решает, что: <br> x=5<br>A=5</p>
+				</center>
+			</div>
+			<div class="step6" style="width: 1/4;">
+				<center>
+					<p>Bob решает, что:<br>x=7<br>A=3</p>
+				</center>
+			</div>
+			<div style="width: 100%">
+				<p class=step7>Полученные значения формулы они передают друг другу</p>
+				<p class="step8"><input type=text readonly="true" value=5 size=2></p>
+				<p class="step8"><img src="left.jpg"></p>
+				<p class="step8"><input type=text readonly="true" value=3 size=2></p>
+				<p class="step8"><img src="right.jpg"></p>
+				<p class="step9"> Используя полученные числа друг от друга,каждый из них получает ещё 1 число<br>Причем при данной формуле оно всегда будет одинаковым</p>
+				<p class="step9">K=A<sup>x</sup>mod p</p>
+			</div>
+			<div class="step10" style="width: 1/4;">
+				<center>
+					<p>Alice высчитывает, что: k=5</p>
+				</center>
+			</div>
+			<div class="step10" style="width: 1/4;">
+				<center>
+					<p>Bob высчтитывает, что: k=5</p>
+				</center>
+			</div>
+			<div class="step11" style="width: 100%;">
+				<center>
+					<p>Полученное число можно использовать для шифрования</p>
+				</center>
+			</div>
+		</center>
+		<script type="text/javascript">
+			var step=0
+			var max_step=11
+			function next_step() {
+				elems = document.getElementsByClassName("step"+(step+1))
+				for (j=0;j<elems.length;j++)
+				{
+					elems[j].style.display=""
+				}
+				step++
+				if (step==max_step)
+					alert("Для повторения нажмите ещё раз на тело")
+				if (step>max_step)
+					repeat()
+			}
+			function repeat(){
+				step=0;
+				for (var i=1;i<=max_step;i++)
+				{
+					elems = document.getElementsByClassName("step"+i)
+					for (j=0;j<elems.length;j++)
+					{
+						elems[j].style.display="none"
+					}
+				}
+			}
+			repeat();
+
+		</script>
+	</body>
+</html>
