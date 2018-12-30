@@ -1,0 +1,162 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Security is an important thing</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" href="images/laws/shield.png">
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="assets/js/jquery-3.3.1.js"></script>
+		<script>
+		$(function(){
+		$("#header").load("header.html");
+		$("#here_footer").load("footer.html");
+		});
+		</script>
+		<style type="text/css">
+			.myHead{
+				font-size: 24px;
+				margin-top: 0px;
+				margin-bottom: 12px;
+				margin-left: 2.5cm;
+			}
+			img {
+				align-content: justify;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="header"></div>
+
+		<!-- Banner -->
+			<section id="banner">
+				<div class="inner">
+					<header>
+						<h1>Цифровая подпись</h1>
+					</header>
+
+				</div>
+			</section>
+
+ 
+		<br>
+		<br>
+		<div class="row move_left" style="width:1024px;text-align:justify;margin: auto">
+			<h1 class="myHead">Введение</h1>
+			<div>
+			 Электронная цифровая подпись – это реквизит документа, позволяющий подтвердить принадлежность ЭЦП ее владельцу, а также зафиксировать состояние документа и предотвратить изменение без повторной подписи файла. 
+			</div>
+
+			<h1 class="myHead">Схема работы</h1>
+			<div>Используя хэш функцию, мы создаем хэш нашего файла. Это необходимо для того, чтобы цифровая подпись была малого размера, т.к. подписать можно любой файл – от текстовой заметки, до архива данных из коллайдера, весом в несколько сотен терабайт. 
+			</div>
+			<div>
+			Используя свой закрытый ключ, шифруем данный хэш. В дальнейшем, при посылании файла, прикрепляем к нему подпись и публичный ключ, который позволит клиенту проверить подпись на действительность.
+			</div>
+			<div>
+			При получении файла и подписи, клиент сравнивает подпись с хэшем данных. Если равенство не соблюдается, то файл был изменен в промежутке между подписанием и получением, что является недопустимым. 	
+			</div>
+			 
+ 			<img src="images\lectures\ECP\1.jpg" width="1024">
+
+
+ 			<h1 class="myHead">Юридический статус</h1>
+ 			<div>
+ 			Согласно законодательству РФ, электронная подпись — это эквивалент подписи, проставляемой «от руки», обладающий полной юридической силой. 
+ 			</div>
+ 			<div>
+ 			В Российской Федерации существует два вида ЭЦП:
+ 			<ul>
+ 				<li>неквалифицированная — обеспечивает юридическую значимость документа, но только после заключения дополнительных соглашений между подписантами о правилах применения и признания ЭЦП. Она позволяет подтвердить авторство документа и проконтролировать его неизменность после подписания.</li>
+ 				<li>простая — не придает подписанному документу юридическую значимость до заключения дополнительных соглашений между подписантами о правилах применения и признания ЭЦП и без соблюдении законодательно закрепленных условий по ее использованию (простая электронная подпись должна содержаться в самом документе, ее ключ применяться в соответствии с требованиями информационной системы, где она используется, и прочее согласно ФЗ-63, ст.9), не гарантирует его неизменность с момента подписания, позволяет подтвердить авторство. Ее применение не допускается в случаях, связанных с государственной тайной.  </li>
+
+ 			</ul>
+ 			</div>
+
+ 			<h1 class="myHead">Использование подписи</h1>
+ 			<div>
+ 				Для начала нужно установить программу, для работы с ЭЦП. К примеру:
+ 				<br>
+ 				<ul>
+ 					<li>КриптоПро CSP</li>
+ 					<li>ViPNet CSP</li>
+ 					<li>Рутокен ЭЦП</li>
+ 					<li>JaCarta ГОСТ</li>
+ 					<li>КриптоАРМ</li>
+ 				</ul>
+
+ 			</div>
+ 			<p>Рассмотрим работу ЭЦП с использованием программы КриптоАРМ:</p>
+ 			<div>Кликнуть на документ правой кнопкой мышки, выбрать криптопровайдер и графу «Подписать».</div>
+ 			<div style="width: 1024px">
+ 				<img src="images\lectures\ECP\2.jpg">
+ 			</div>
+ 			<div >Пройти путь в диалоговых окнах криптопровайдера: </div>
+ 			<div style="width: 1024px">
+ 				<img src="images\lectures\ECP\3.jpg">
+
+ 			</div>
+
+ 			<div >Обзор файлов </div>
+ 			<div style="width: 1024px">
+ 				<img src="images\lectures\ECP\4.jpg">
+ 			</div>
+
+ 			<div >Выбрать кодировку и формат</div>
+ 			<div style="width: 1024px">
+ 				<img src="images\lectures\ECP\5.jpg">
+ 			</div>
+
+ 			<div >Добавить по желалию дополнительную информацию </div>
+ 			<div style="width: 1024px">
+ 				<img src="images\lectures\ECP\6.jpg">
+ 			</div>
+
+ 			<div >Выбрать сертификат </div>
+ 			<div style="width: 1024px">
+ 				<img src="images\lectures\ECP\7.jpg">
+ 			</div>
+
+ 			<div >Выбрать нужный алгоритм шифрования </div>
+ 			<div style="width: 1024px">
+ 				<img src="images\lectures\ECP\8.jpg">
+ 			</div>
+
+ 			<div >Подтвердить </div>
+ 			<div style="width: 1024px">
+ 				<img src="images\lectures\ECP\9.jpg">
+ 			</div>
+
+ 			<div >Готово! </div>
+ 			<div style="width: 1024px">
+ 				<img src="images\lectures\ECP\10.jpg">
+ 			</div>
+
+ 			<div >В дальнейшем у документа можно будет подтвердить подпись </div>
+ 			<div style="width: 1024px">
+ 				<img src="images\lectures\ECP\11.jpg">
+ 			</div>
+
+ 			<div >И узнать автора подписи</div>
+ 			<div style="width: 1024px">
+ 				<img src="images\lectures\ECP\12.jpg">
+ 			</div>
+
+ 			 
+		</div>
+
+
+
+<div id="here_footer"></div>
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
