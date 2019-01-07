@@ -1,0 +1,100 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Security is an important thing</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" href="images/laws/shield.png">
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="assets/js/jquery-3.3.1.js"></script>
+		<script>
+		$(function(){
+		$("#header").load("header.html");
+		$("#here_footer").load("footer.html");
+		});
+		</script>
+		<style type="text/css">
+			.myHead{
+				font-size: 24px;
+				margin-top: 0px;
+				margin-bottom: 12px;
+				margin-left: 2.5cm;
+			}
+			img {
+				align-content: justify;
+			}
+			code{
+				margin: 10px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="header"></div>
+
+		<!-- Banner -->
+			<section id="banner">
+				<div class="inner">
+					<header>
+						<h1>Цифровая подпись на основе RSA</h1>
+					</header>
+
+				</div>
+			</section>
+
+ 
+		<br>
+		<br>
+		<div class="row move_left" style="width:1024px;text-align:justify;margin: auto">
+			<h1 class="myHead">Введение</h1>
+			<div>
+			 Первой и наиболее известной во всем мире конкретной системой ЭЦП стала система RSА, математическая схема которой была разработана в 1977 г. в Массачуссетском технологическом институте США.
+
+			Сначала необходимо вычислить пару ключей (секретный ключ и открытый ключ). Для этого отправитель (автор) электронных документов вычисляет два больших простых числа p и q, затем находит их произведение 
+			</div>
+ 	
+
+ 			<pre><code >N = p * q</code></pre>
+ 			<div style="width: 100%">и значение функции</div>
+			<pre><code >f(N) = (p - 1)(q - 1)</code></pre>
+			<div style="width: 100%">Далее отправитель вычисляет число Е из условий: </div>
+			<pre><code>E <= f(N), НОД(Е, f(N)) = 1 </code></pre>
+			<div style="width: 100%">и число D из условий: </div>
+			<pre><code>D < N, E*D сравнимо с единицей по модулю f(N).  </code></pre>
+			<div style="width: 100%">Пара чисел (Е, N) является открытым ключом. Эту пару чисел автор передает партнерам по переписке для проверки его цифровых подписей. Число D сохраняется автором как секретный ключ для подписывания. </div>
+			<img src="images\lectures\ECP\rsa.png">
+ 			<div style="width: 100%">Допустим, что отправитель хочет подписать сообщение М перед его отправкой. Сначала сообщение М (блок информации, файл, таблица) сжимают с помощью хэш-функции h(M) в целое число m:  </div>
+ 			<pre><code >m = h(М)</code></pre>
+ 			<div style="width: 100%">Затем вычисляют цифровую подпись S под электронным документом М, используя хэш-значение m и секретный ключ D: </div>
+ 			<pre><code >S = (m^D)(mod N)</code></pre>
+ 			<div style="width: 100%">Пара (М,S) передается партнеру-получателю как электронный документ М, подписанный цифровой подписью S, причем подпись S сформирована обладателем секретного ключа D. </div>
+ 			<div style="width: 100%">После приема пары (М,S) получатель вычисляет хэш-значение сообидения М двумя разными способами. Прежде всего он восстанавливает хэш-значение m', применяя криптографическое преобразование подписи S с использованием открытого ключа Е: </div>
+ 			<pre><code >m' = (S^E)(mod N)</code></pre>
+ 			<div style="width: 100%">Кроме того, он находит результат хэширования принятого сообщения М с помощью такой же хэш-функции h(M): </div>
+			<pre><code >m = h(М)</code></pre>
+			<div style="width: 100%">Если соблюдается равенство вычисленных значений, т.е. </div>
+			<pre><code >(S^E)(mod N ) = h ( М ) </code></pre>
+			<div style="width: 100%">то получатель признает пару (М,S) подлинной. Доказано, что только обладатель секретного ключа D может сформировать цифровую подпись S по документу М, а определить секретное число D по открытому числу Е не легче, чем разложить модуль N на множители. Кроме того, можно строго математически доказать, что результат проверки цифровой подписи S будет положительным только в том случае, если при вычислении S был использован секретный ключ D, соответствующий открытому ключу Е. Поэтому открытый ключ Е иногда называют "идентификатором" подписавшего. </div>
+
+ 
+ 			<!-- 
+<div style="width: 100%"> </div>
+
+<pre><code > </code></pre>
+ 			-->
+		</div>
+
+
+
+<div id="here_footer"></div>
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
