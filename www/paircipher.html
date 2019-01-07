@@ -2,34 +2,93 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Кдинозначный парный шифр</title>
+    <title>Единозначный парный шифр</title>
     <script
             src="https://code.jquery.com/jquery-3.3.1.slim.js"
             integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
             crossorigin="anonymous"></script>
-    <script src="assets/js/paircipher.js"></script>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script src="assets/js/crypt.js"></script>
 
 </head>
 <body>
-<div class="block">
-    <label>
-        Ключ (16 символов, русский алфавит)
-        <input type="text" id="key" placeholder="Ключ"/> <span id="counter">0/16</span>
-    </label>
-</div>
-<div class="block">
-    <label>
-        Фраза для зашифровывыания (на русском)
-        <textarea id="phrase" contenteditable="false"></textarea>
 
-    </label>
-</div>
-<div class="block">
-    <label>
-        Результат
-        <textarea id="result" contenteditable="false"></textarea>
-    </label>
-</div>
-<button id="process">Шифровать</button>
+
+
+<div id="header"></div>
+<!-- Main -->
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h2>Единозначный парный шифр</h2>
+        </header>
+
+
+        <!-- Intro -->
+        <div class="row">
+            <section class="6u 12u$(medium)">
+                <p><strong>Единозначный парный шифр</strong>- шифр подстановки, в котором половина букв алфавита связана с другой половиной</p>
+                <p></p>
+            </section>
+
+        </div>
+        
+        <div class="row">
+         <section class="3u 6u(medium) 12u$(small)">
+                <h2>Как это выглядит?</h2>
+                <span class="image">
+									<img src="http://images.myshared.ru/6/704363/slide_6.jpg" alt="">
+								</span>
+            </section>
+        </div>
+
+        <div class="row">
+            <section class="6u 12u$(medium)">
+                <h2>Происхождение</h2>
+                <p>Использовался революционерами Российской Имеприи. является ненадежным, поэтому использовался только для коротких записок </p>
+                <p></p>
+            </section>
+        </div>
+
+        <hr class="major" />
+
+        <h4>Шифратор/Дешифратор (при  нынешнем алфавите в шифре исполюзуются 16 букв без Ё)</h4>
+
+        <div class="row">
+            <div class="3u 12u$(small)">
+                <input type="text" name="query" id="key" value="" placeholder="Ключ">
+            </div>
+            <span style="font-size: 24pt" id="counter">0/16</span>
+        </div>
+         <div class="row">
+            <div class="6u 12u$(small)">
+                <h4>Текст для шифрования:</h4>
+                <input type="text" id="phrase"></textarea>
+            </div>
+        </div>
+            
+        <div class="row">
+            <div class="6u 12u$(small)">
+            <h4>Зашифрованный текст</h4>
+            <input type="text" id="result"></textarea>
+            </div>
+        </div>
+        <div class="row">
+      
+            <div style="padding-top: 10px" class="3u$ 12u$(small)">
+                <input type="button" value="Зашифровать " id="crypt" class="fit">
+            </div>
+            <div class="3u$ 12u$(small)">
+                <input type="button" value="Расшифровать " id="decrypt" class="fit">
+            </div>
+        </div>
+    
+
+    </div>
+
+
+
+</section>
+
 </body>
 </html>
