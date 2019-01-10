@@ -27,7 +27,7 @@
     <section id="banner">
         <div class="inner">
             <header>
-                <h1>Cдвиговый линейный конгруэнтный генератор</h1>
+                <h1>Генераторы, основанные на управлении синхросигналом</h1>
             </header>
         </div>
     </section>
@@ -37,106 +37,49 @@
     <div class="row move_left">
         <section class="12u 12u$(large)">
             <h3>Введение</h3>
-            <p><b>Линейный конгруэнтный метод</b> — один из методов генерации псевдослучайных чисел.</p>
-        </section>
-        <section class="11u 12u$(medium)">
-            <h3>Общая информация</h3>
-            <p> Применяется в простых случаях и не обладает криптографической стойкостью. Входит в стандартные библиотеки различных компиляторов.
-            </p>
-            <p>
-                Линейный конгруэнтный метод был предложен Д. Г. Лемером в 1949 году.
-            </p>
-            <h3>Описание алгоритма генерации</h3>
-            <ol>
-                <li>
-                    <p>
-                        <b>Генерация первого псевдослучайного числа (далее зерно).</b><br>
-                        Это число должно быть «наиболее случайным», так как генератор линеен<br>
-                        (то есть, зная зерно, можно с точностью узнать дальнейшие числа).<br>
-                        Обычно это число берется из счётчика TSC (Time Stamp Counter), который возвращает в регистрах EDX:EAX 64-битное количество тактов с момента последнего сброса процессора.
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        <b>Вычисление очередного значения по следующей формуле (рисунок 1).</b>
-                        <section class="12u 12u$(medium)">
-                            <img src="images/ciphers/linear congruential.svg" class="image_lectures and_center" alt="Линейный конгруэнтный метод">
-						</section>
-                            <center><i>Рис.1 Формула вычисления n+1-ого значения</i></center>
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        <b>Сдвиговая часть генератора (рисунок 2).</b>
-                        <section class="12u 12u$(medium)">
-                            <img src="images/ciphers/shift register.jpg" class="image_lectures and_center" alt="Сдвиговый регистр">
-						</section>
-                            <center><i>Рис.2 Формула сдвига</i></center>
-                    </p>
-                </li>
-            </ol>
-        </section>
-        <section class="11u 12u$(medium)">
+            <p>В нелинейных комбинациях генераторов и генераторах на нелинейных фильтрах перемещение данных во всех РСЛОС контролируется одним синхросигналом.
+Основная идея функционирования рассматриваемого типа генераторов — внести нелинейность в работу генераторов потока ключей, основанных на РСЛОС, путём управления синхросигналом одного регистра выходной последовательностью другого.
+Есть 2 типа генераторов, основанных на управлении синхросигналом:
+</br>1. генератор переменного шага 
+</br>2. сжимающий генератор.
+</p>
+<h2>Сжимающий генератор</h2>
+ <img src="images/laws/yy.jpg" alt="" class="image_fixer">
+<p>Контролирующий регистр РСЛОС 1 используется для управления выходом РСЛОС 2. </p>
+        
             <h3>Пример работы генератора</h3>
             <div class="row">
                 <div class="2u 12u$(small)">
-                    <div>Зерно:</div>
+                    <div>R1:</div>
                     <div id="seed">0</div>
                 </div>
                 <div class="3u 12u$(small)">
-                    <input type="submit" value="Сгенерировать новое зерно" class="fit" onclick="set_TSC()">
+                   </br> <input type="submit" value="Изменить значение r1" class="fit" onclick="set_TSC()">
+                </div>
+            </div>
+         
+                
+            <br>
+            <div class="row">
+                <div >
+                    <div>R2:</div>
+                    <div id="deed">1</div>
+<div >
+                   </br> <input type="submit" value="Сгенерировать r2" class="fit" onclick="linear_congruential()">
+                </div>
+            </div>
+           
+            <br>
+            <div class="row">
+                <div >
+                    </br><div>Значение после изменения r1:</div>
+                </div>
+                <div >
+                   </br> <div id="val_2">0</div>
                 </div>
             </div>
             <br>
-            <div class="row">
-                <div class="2u 12u$(small)">
-                    <div>Значение A:</div>
-                </div>
-                <div class="3u 12u$(small)">
-                    <input type="text" value="12567" id='val_a' placeholder="Значение a">
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="2u 12u$(small)">
-                    <div>Значение B:</div>
-                </div>
-                <div class="3u 12u$(small)">
-                    <input type="text" value="2454" id='val_b' placeholder="Значение b">
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="2u 12u$(small)">
-                    <div>Значение M:</div>
-                </div>
-                <div class="3u 12u$(small)">
-                    <input type="text" value="10000" id='val_m' placeholder="Значение m">
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="2u 12u$(small)">
-                    <div>Значение: после использования линейного конгруэнтного метода </div>
-                </div>
-                <div class="3u 12u$(small)">
-                    <div id="val_1">0</div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="2u 12u$(small)">
-                    <div>Значение: после сдвиговой операции</div>
-                </div>
-                <div class="3u 12u$(small)">
-                    <div id="val_2">0</div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="5u 12u$(small)">
-                    <input type="submit" value="Сгенерировать новое значение" class="fit" onclick="linear_congruential()">
-                </div>
+            
             </div>
             <div id="curve_chart" style="width: 900px; height: 500px"></div>
         </section>
@@ -171,68 +114,25 @@
 
     function set_TSC() {
         var seed = document.getElementById("seed");
-        seed.innerHTML = (TSC() % 17805) + "";
-        val_2.innerHTML = seed.innerHTML + "";
+	var dead = document.getElementById("deed");
+	if(seed.innerHTML==0){
+seed.innerHTML=1;
+val_2.innerHTML = dead.innerHTML;
+}else{
+seed.innerHTML=0;
+val_2.innerHTML = 0;
+}
 
     }
 
     function linear_congruential() {
+	var dead = document.getElementById("deed");
+       deed.innerHTML = (TSC() % 17805) + "";
 
-        var a = document.getElementById("val_a").value * 1;
-        var b = document.getElementById("val_b").value * 1;
-        var m = document.getElementById("val_m").value * 1;
 
-        var val_1 = document.getElementById("val_1");
-        var val_2 = document.getElementById("val_2");
-
-        var result_1 = (a * (val_2.innerHTML * 1) + b) % m;
-        val_1.innerHTML = result_1;
-
-        //Сдвиговая часть
-        var result_2 = ((result_1 >>> 0) & 1) ^
-            ((result_1 >>> 1) & 1) ^
-            ((result_1 >>> 2) & 1) ^
-            ((result_1 >>> 3) & 1) ^
-            ((result_1 >>> 4) & 1) ^
-            ((result_1 >>> 5) & 1) ^
-            ((result_1 >>> 6) & 1) ^
-            ((result_1 >>> 7) & 1) ^
-            ((result_1 >>> 8) & 1) ^
-            ((result_1 >>> 9) & 1) ^
-            ((result_1 >>> 0) & 1) ^
-            ((result_1 >>> 0) & 1) ^
-            ((result_1 >>> 10) & 1) ^
-            ((result_1 >>> 11) & 1) ^
-            ((result_1 >>> 12) & 1) ^
-            ((result_1 >>> 13) & 1) ^
-            ((result_1 >>> 14) & 1) ^
-            ((result_1 >>> 15) & 1) ^
-            ((result_1 >>> 16) & 1) ^
-            ((result_1 >>> 17) & 1) ^
-            ((result_1 >>> 18) & 1) ^
-            ((result_1 >>> 19) & 1) ^
-            ((result_1 >>> 20) & 1) ^
-            ((result_1 >>> 21) & 1) ^
-            ((result_1 >>> 22) & 1) ^
-            ((result_1 >>> 23) & 1) ^
-            ((result_1 >>> 24) & 1) ^
-            ((result_1 >>> 25) & 1) ^
-            ((result_1 >>> 26) & 1) ^
-            ((result_1 >>> 27) & 1) ^
-            ((result_1 >>> 30) & 1) ^
-            ((result_1 >>> 31) & 1);
-        result_2 = (result_1 >>> 1) | ((result_2 & 1) << 31);
-        //var result_2=result_1;
-
-        val_2.innerHTML = Math.abs(result_2);
-        arr.push([N, Math.abs(result_2)]);
-        N++;
-        drawChart(arr)
 
     }
-    set_TSC();
-    google.charts.load('current', { 'packages': ['corechart'] });
-    google.charts.setOnLoadCallback(drawChart);
+
     </script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/skel.min.js"></script>
