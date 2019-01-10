@@ -1,0 +1,91 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Security is an important thing</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" href="images/laws/shield.png">
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="assets/js/jquery-3.3.1.js"></script>
+		<script>
+		$(function(){
+		$("#header").load("header.html");
+		$("#here_footer").load("footer.html");
+		});
+		</script>
+		<style type="text/css">
+			p{
+				text-indent: 35px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="header"></div>
+
+		<!-- Banner -->
+			<section id="banner">
+				<div class="inner">
+					<header>
+						<h1>Система цифровой подписи DSS</h1>
+					</header>
+
+				</div>
+			</section>
+
+<br/><br/><br/>
+		<!-- Three -->
+
+		<a name="doktrina"></a>
+
+
+		<div class="row move_left">
+			<section class="12u 12u$(large)">
+				<h3>Введение</h3>
+				<p>DSS - американский стандарт, описывающий Digital Signature Algorithm (DSA), который может быть использован для генерации цифровой подписи. </p>
+			</section>
+
+
+	<section class="11u 12u$(medium)">
+		<h3>Общая информация</h3>
+				SA используется одной стороной для генерации подписи данных, а другой для проверки подлинности подписчика. Подпись генерируется при помощи закрытого ключа. Любая сторона может проверить подлинность цифровой подписи при помощи открытого ключа. Открытый ключ посылается вместе с подписанными данными. Открытый и закрытый ключи не совпадают.
+
+При генерации подписи для получения сжатой версии данных используется хэш-функция. Полученные данные обрабатываются при помощи DSA для получения цифровой подписи. Для проверки подписи используется та же хэш-функция. Хэш-функция описана в SHS (Secure Hash Standard).
+DSA использует следующие параметры:
+<ol>
+<li>1. p – простое число p, где 2L-1 < p < 2L, 512 =< L =< 1024 и L кратно 64</li>
+<li>2. q – простой делитель p-1, причем 2159 < q < 2160</li>
+<li>3. g = h(p-1)/q mod p, где h любое целое число 1 < h < p - 1 такое, что h(p-1)/q mod p > 1</li>
+<li>4. x – случайное или псевдослучайное целое число, где 0 < x < q</li>
+<li>5. y = gx mod p</li>
+<li>6. k – случайное или псевдослучайное целое число, где 0 < k < q.</li>
+</ol>
+
+<h4>Генерация подписи</h4>
+<p>
+Подписью сообщения M является пара чисел r и s, где
+r = (gk mod p) mod q 
+s = (k−1(SHA(M) + xr)) mod q.
+SHA(M) — 160-битная бинарная строка.
+
+Если r = 0 или s = 0, должно быть сгенерировано новое k и вычислена новая подпись. Если подпись вычислялась правильно, вероятность того, что r = 0 или s = 0 очень мала.
+
+Подпись вместе с сообщением пересылается получателю.</p>
+</section>
+
+</div>
+
+
+
+<div id="here_footer"></div>
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
