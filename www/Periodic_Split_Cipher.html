@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<!--
+	Projection by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Cesar</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+					<script src="assets/js/jquery-3.3.1.js"></script>
+		<script>
+$(function(){
+	$("#header").load("header.html");
+	$("#here_footer").load("footer.html");
+});
+</script>
+	</head>
+	<body class="subpage">
+
+<div id="header"></div>
+		<!-- Main -->
+		<section id="main" class="wrapper">
+				<div class="inner">
+					<header class="align-center">
+						<h2>Периодический раздельный шифр</h2>
+						<p>Гамбеттовский шифр</p>
+					</header>
+
+
+					<!-- Intro -->
+						<div class="row">
+							<section class="6u 12u$(medium)">
+								<h2>Что Гамбеттовский шифр?</h2>
+								<p>Сущность шифра заключается в том, что живая речь, преобразованная в числовой ряд, видоизменяется числовым же ключом, накладываемым на нее последовательно, периодически.</p>
+								<p></p>
+							</section>
+							<!--<section class="3u 6u(medium) 12u$(small)">
+								<h2>Как это выглядит?</h2>
+								<span class="image">
+									<img src="" alt="">
+								</span>
+							</section>-->
+
+						</div>
+
+						<div class="row">
+							<section class="6u 12u$(medium)">
+								<h2>Суть простыми словами?</h2>
+										<p>Преобразуем буквы в числа и складываем их.</p>
+							</section>
+						</div>
+
+				<hr class="major" />
+
+					<!-- Content -->
+						<h2 id="content">Алгоритм шифрования</h2>
+						<h4>Периодический раздельный шифр</h4>
+						<p> Сущность гамбеттовского шифра заключается в том, что буквы открытого текста, преобразованные в числовой ряд в соответствии с алфавитным порядком, видоизменяются числовым же ключом (короткой гаммой), накладываемым последовательно, периодически.</p>
+						<h1>Пример:</h1>
+						<div class="box">
+							<p>Предположим, необходимо зашифровать фразу: «Письмо не получила».
+							Подставим вместо букв числовые значения их места в русском алфавите; получим ряд: 17, 9, 19, 30, 14, 1, 15, 6, 17, 16, 13, 21, 25, 9, 13, 1.
+							Пусть ключом будет слово «ЕВРОПА», которое в числовом выражении имеет вид: 6, 3, 18, 16, 17, 1.
+							Наложим ключ (гамму) периодически на цифровой текст (фразу) столько раз, сколько он на ней уместится,
+							и произведем сложение вертикальных пар чисел. В результате получаем шифртекст:</p>    <br>    <p><blockquote>Ключ:        6  3 18 16 17 1  6 3 18 16 17  1  6  3 18 16 </blockquote></p>    <p><blockquote>Текст:      17  9 19 30 14 1 15 6 17 16 13 21 25  9 13  1 </blockquote></p>    <p><blockquote><strike>—————————————————————————————————————————————————————————</strike> </blockquote></p>    <p><blockquote>Шифр–текст: 23 12 37 46 31 2 21 9 35 32 30 22 31 12 31 17 </blockquote></p> 
+						</div>
+
+						<h4>Шифратор</h4>
+
+						<div class="row">
+							<div class="3u 12u$(small)">
+								<input type="text" name="query" id="key" value="" placeholder="Ключ">
+							</div>
+								<div class="6u 12u$(small)">
+									<input type="text" name="query" id="input" value="" placeholder="Текст для шифрования">
+								</div>
+								<div class="3u$ 12u$(small)">
+									<input type="button" value="Зашифровать  "  class="fit" onclick="enc()">
+								</div>
+						</div>
+						<br/>
+						<h4>Результат:</h4>
+						<div id="output_div"></div>
+
+
+						<h4>Дешифратор</h4>
+
+						<div class="row">
+							<div class="3u 12u$(small)">
+								<input type="text" name="query" id="key_dec" value="" placeholder="Ключ">
+							</div>
+								<div class="6u 12u$(small)">
+									<input type="text" name="query" id="input_dec" value="" placeholder="Текст для расшифрования">
+								</div>
+								<div class="3u$ 12u$(small)">
+									<input type="button" value="Расшифровать  "  class="fit" onclick="dec()">
+								</div>
+						</div>
+						<br/>
+						<h4>Результат:</h4>
+						<div id="output_div_dec"></div>
+						
+
+
+
+			</section>
+
+			<script>
+				var output		=document.getElementById("output_div");
+				var input		=document.getElementById("input");
+				var key			=document.getElementById("key");
+
+				var output_dec	=document.getElementById("output_div_dec");
+				var input_dec	=document.getElementById("input_dec");
+				var key_dec		=document.getElementById("key_dec");
+				function enc() {
+					var rus_a_code="а".charCodeAt(0)-1;
+					output.innerHTML="";
+					var j=0;
+					for(var i=0;i<input.value.length;i++)
+					{
+						if(input.value[i]==" ")continue;
+						output.innerHTML+= input.value.charCodeAt(i)+key.value.charCodeAt(j)-2*rus_a_code +" ";
+						j++;
+						if(j==key.value.length)j=0;
+					}
+
+				}
+				function dec() {
+					var rus_a_code="а".charCodeAt(0)-1;
+					output_dec.innerHTML="";
+					var j=0;
+					var values=input_dec.value.split(" ");
+					console.log(values)
+					for(var i=0;i<values.length;i++)
+					{
+						output_dec.innerHTML+= String.fromCharCode(values[i]*1-(key_dec.value.charCodeAt(j)-rus_a_code)+rus_a_code) +" ";
+						j++;
+						if(j==key_dec.value.length)j=0;
+					}
+
+				}
+			</script>
+
+		<!-- Footer -->
+
+<div id="here_footer"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>
